@@ -1,0 +1,28 @@
+{
+  "name": "google-nodejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "serverless deploy"
+  },
+  "author": "serverless.com",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4",
+    "serverless-dotenv-plugin": "^2.0.1",
+    "serverless-google-cloudfunctions": "*"
+  },
+  "dependencies": {
+    "@slack/client": "^4.9.0",
+    "dotenv": "^6.2.0",
+    "js-yaml": "^3.12.1",
+    "moment-timezone": "^0.5.23",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
