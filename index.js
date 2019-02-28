@@ -67,10 +67,10 @@ async function assemble(request) {
   const jstDateTime = moment()
     .tz(process.env.TIMEZONE)
     .format("YYYYMMDD-HHmm");
-  const channelName = `${process.env.CHANNEL_NAME_PREFIX}_${jstDateTime}`;
 
   try {
     const config = await loadConfig();
+    const channelName = `${config.channel_name_prefix}_${jstDateTime}`;
 
     const createChannelResponse = await web.channels.create({
       name: channelName,

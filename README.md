@@ -40,10 +40,12 @@ $cd incident-management
 $touch .env
 ```
 update environment variables like `.env.example`.  
-## 5. set tasks and members
-set tasks to `config.yml`  
+## 5. set config file
+set `channel_name_prefix`,`tasks`,`members` to `config.yml`  
 config.yml
 ```
+channel_name_prefix: test
+
 tasks:
   - task1
   - task2
