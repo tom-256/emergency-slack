@@ -1,3 +1,7 @@
+#create channel as #test_YYYYMMDD-HHmm
+#c.f. https://get.slack.help/hc/en-us/articles/201402297-Create-a-channel
+channel_name_prefix: test
+
 tasks:
   - task1
   - task2
