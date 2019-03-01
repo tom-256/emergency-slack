@@ -17,6 +17,7 @@ This function helps incident management.
 # Setup
 ## 1. create Slack App
 https://api.slack.com/slack-apps
+- Add team member to Collaborators 
 ### add Permission Scopes
 - `channels:write`
 - `chat:write:bot`
@@ -64,6 +65,7 @@ $npm run deploy
 ## 7. add slash command
 set the Cloud Functions Trriger as `Request URL`  
 c.f. https://api.slack.com/slash-commands
+
 # Usage
 type slash command.  
 example
