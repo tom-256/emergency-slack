@@ -19,7 +19,7 @@ async function loadConfig() {
 async function getMembersByName(users) {
   const usersList = await web.users.list();
   return usersList.members.filter(member => {
-    return users.indexOf(member.name) != -1;
+    return users.indexOf(member.profile.display_name) != -1;
   });
 }
 
@@ -64,6 +64,7 @@ async function sendMessage(message, responseUrl) {
  */
 async function assemble(request) {
   const responseUrl = request.body.response_url;
+  const userID = request.body.user_id;
   const jstDateTime = moment()
     .tz(process.env.TIMEZONE)
     .format("YYYYMMDD-HHmm");
@@ -90,11 +91,16 @@ async function assemble(request) {
       channel: channelID,
       text: taskList
     });
-    const members = await getMembersByName(config.members);
+    let members = await getMembersByName(config.members);
+    members = members.filter(member => member.id != userID);
     if (members.length === 0) {
       return sendMessage("Member not found", responseUrl);
     }
     await inviteMembers(members, channelID, responseUrl);
+    const invitedMembersString = members.reduce((a, c) => {
+      return { name: `${a.name},${c.name}` };
+    }).name;
+    return sendMessage(`invite ${invitedMembersString}`, responseUrl);
   } catch (error) {
     return sendMessage(error.message, responseUrl);
   }
